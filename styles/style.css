@@ -43,6 +43,13 @@ body {
   border: none;
 }
 
+.buttons input:hover {
+  color: black;
+  background-color: #a0a0a0;
+  -webkit-transition: background-color 1s;
+  transition: background-color 1s;
+}
+
 .btn0 {
   padding-left: 20px;
   text-align: left;
@@ -62,6 +69,11 @@ body {
 
 .gray {
   background-color: #a0a0a0;
+}
+
+.buttons .gray:hover {
+  color: white;
+  background-color: #313131;
 }
 
 @media (max-width: 350px) {
