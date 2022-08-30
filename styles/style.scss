@@ -1,25 +1,67 @@
-*{
-	margin: 0;
-	padding: 0;
-	box-sizing:border-box;
-}
-body{
-	text-align: center;
-}
-.calc{
+//----------------Reset--------------
+	*{
+		margin: 0;
+		padding: 0;
+		box-sizing:border-box;
+	}
+//--------------/Reset----------------
+
+
+
+//--------------Variable------------
+
+//фоновый цвет калькулятора
+$calc_bg : black;
+
+//Граница калькулятора
+$calc_border : 3px solid black;
+
+//Цвет вывода
+$conclusion_color : white;
+
+//фоновый цвет вывода
+$conclusion_bg-color : black;
+
+
+//--------------/Variable------------
+
+
+
+//-----------------Mixin--------------
+
+//Структура калькулятора
+@mixin calcStructure{
 	margin-left: auto;
 	margin-right: auto;
 	padding: 10px;
 	padding-bottom: 20px;
-	background-color: black;
 	width: 330px;
-	border: 3px solid black;
-	border-radius: 10px;
 	text-align: center;
 }
-.input input{
-	color: white;
-	background-color: black;
+
+//Оформление калькулятора
+@mixin calcDecor{
+	background-color: $calc_bg;
+	border: $calc_border;
+	border-radius: 10px;
+}
+
+//-----------------/Mixin---------------
+
+
+
+//-----------------Main-----------------
+
+//Наш калькулятор
+.calc{
+	@include calcStructure;
+	@include calcDecor;
+}
+
+//Вывод калькулятора
+.calc__conclusion input{
+	color: $conclusion_color;
+	background-color: $conclusion_bg-color;
 	height: 100px;
 	border: none;
 	border-radius: 10px;
@@ -28,6 +70,8 @@ body{
 	font-family: sans-serif;
 	font-size: 40px;
 }
+
+//
 .buttons input{
 	font-size: 20px;
 	font-weight: bold;
@@ -74,3 +118,4 @@ body{
 		padding-bottom: 0px;
 	}
 }
+//------------------/Main--------------
