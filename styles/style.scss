@@ -1,35 +1,42 @@
-//----------------Reset--------------
+//----------------Reset--------------|
+
 	*{
 		margin: 0;
 		padding: 0;
 		box-sizing:border-box;
 	}
-//--------------/Reset----------------
+
+//--------------/Reset----------------|
 
 
 
-//--------------Variable------------
+//--------------Variable------------|
 
-//фоновый цвет калькулятора
+//Сalculator background color
 $calc_bg : black;
 
-//Граница калькулятора
+//Сalculator border
 $calc_border : 3px solid black;
 
-//Цвет вывода
+//Output color
 $conclusion_color : white;
 
-//фоновый цвет вывода
+//Оutput background color
 $conclusion_bg-color : black;
 
+//Hover button color
+$btn-color-hover: black;
 
-//--------------/Variable------------
+//Button background color on hover
+$btn-bgcolor-hover: #a0a0a0;
+
+//--------------/Variable------------|
 
 
 
-//-----------------Mixin--------------
+//-----------------Mixin--------------|
 
-//Структура калькулятора
+//Calculator structure
 @mixin calcStructure{
 	margin-left: auto;
 	margin-right: auto;
@@ -39,83 +46,153 @@ $conclusion_bg-color : black;
 	text-align: center;
 }
 
-//Оформление калькулятора
+//Calculator Decor
 @mixin calcDecor{
 	background-color: $calc_bg;
 	border: $calc_border;
 	border-radius: 10px;
 }
 
-//-----------------/Mixin---------------
-
-
-
-//-----------------Main-----------------
-
-//Наш калькулятор
-.calc{
-	@include calcStructure;
-	@include calcDecor;
+//Calculator structure when max width is 350px
+@mixin calcStructureMedia{
+	width: 100%;
+	padding: 0px;
+	padding-bottom: 0px;
 }
 
-//Вывод калькулятора
-.calc__conclusion input{
-	color: $conclusion_color;
-	background-color: $conclusion_bg-color;
+//Calculator decor when max width is 350px
+@mixin calcDecorMedia{
+	//Пусто
+}
+
+//Output structure
+@mixin conclusionStructure{
 	height: 100px;
-	border: none;
-	border-radius: 10px;
 	width: 97%;
 	text-align:right;
+}
+
+//Output Decor
+@mixin conclusionDecor{
+	color: $conclusion_color;
+	background-color: $conclusion_bg-color;
+	border: none;
+	border-radius: 10px;
 	font-family: sans-serif;
 	font-size: 40px;
 }
 
-//
-.buttons input{
-	font-size: 20px;
-	font-weight: bold;
+//Button structure
+@mixin btnStructure{
 	width: 60px;
 	height: 60px;
-	border-radius: 50%;
 	margin: 5px;
-	border: none;
 }
-.buttons input:hover{
-	color: black;
-	background-color: #a0a0a0;
+
+//Button Decor
+@mixin btnDecor{
+	font-size: 20px;
+	font-weight: bold;
+	border: none;
+	border-radius: 50%;
+}
+
+//Hover button structure
+@mixin btnStructureHover{
+	//Пусто
+}
+
+//Decor buttons on hover
+@mixin btnDecorHover{
+	color: $btn-color-hover;
+	background-color: $btn-bgcolor-hover;
 	transition: background-color 1s;
 }
 
-.btn0{
+//Zero button structure
+@mixin btnZeroStructure{
 	padding-left: 20px;
 	text-align: left;
 	width: 130px !important;
 	border-radius: 50px !important;
 }
-.yellow{
+
+//Zero button decor
+@mixin btnZeroDecor{
+	//Пусто
+}
+
+//-----------------/Mixin---------------|
+
+
+
+//-----------------Main-----------------|
+
+//Our calculator
+.calc{
+	@include calcStructure;
+	@include calcDecor;
+}
+
+//Calculator output
+.calc__conclusion input{
+	@include conclusionStructure;
+	@include conclusionDecor;
+}
+
+//Calculator buttons
+.calc__btn input{
+	@include btnStructure;
+	@include btnDecor;
+}
+
+//Calculator hover buttons
+.calc__btn input:hover{
+	@include btnStructureHover;
+	@include btnDecorHover;
+}
+
+//Zero button
+.btn0{
+	@include btnZeroStructure;
+	@include btnZeroDecor;
+}
+
+//Yellow buttons
+.btn-yellow{
 	background-color: #f59906;
 	color: #f3f6f7;
 }
-.black{
+
+//Black buttons
+.btn-black{
 	background-color: #313131;
 	color: #f3f6f7;
 }
-.gray{
+
+//Gray buttons
+.btn-gray{
 	background-color: #a0a0a0;
 }
-.buttons .gray:hover{
+
+//Gray buttons on hover
+.calc__btn .btn-gray:hover{
 	color: white;
 	background-color: #313131;
 }
+
+//------------------/Main--------------|
+
+
+
+//------------------RWD----------------|
+
+//This css code is applied when max width is 350px
 @media (max-width: 350px){
-	body{
-		width: 100%;
-	}
 	.calc{
-		width: 100%;
-		padding: 0px;
-		padding-bottom: 0px;
+		@include calcStructureMedia;
+		@include calcDecorMedia;
 	}
 }
-//------------------/Main--------------
+
+//-------------------/RWD-----------------|
