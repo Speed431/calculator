@@ -1,79 +1,23 @@
-//----------------Reset--------------|
+@import "_reset";
+@import "_variables";
 
-	*{
-		margin: 0;
-		padding: 0;
-		box-sizing:border-box;
-	}
-
-//--------------/Reset----------------|
-
-
-
-//--------------Variable------------|
-
-//Сalculator background color
-$calc_bg : black;
-
-//Сalculator border
-$calc_border : 3px solid black;
-
-//Output color
-$conclusion_color : white;
-
-//Оutput background color
-$conclusion_bg-color : black;
-
-//Hover button color
-$btn-color-hover: black;
-
-//Button background color on hover
-$btn-bgcolor-hover: #a0a0a0;
-
-//--------------/Variable------------|
-
-
-
-//-----------------Mixin--------------|
-
-//Calculator structure
-@mixin calcStructure{
-	margin-left: auto;
-	margin-right: auto;
+.calc {
+	margin: 0 auto;
 	padding: 10px;
 	padding-bottom: 20px;
 	width: 330px;
 	text-align: center;
-}
-
-//Calculator Decor
-@mixin calcDecor{
 	background-color: $calc_bg;
 	border: $calc_border;
 	border-radius: 10px;
 }
 
-//Calculator structure when max width is 350px
-@mixin calcStructureMedia{
-	width: 100%;
-	padding: 0px;
-	padding-bottom: 0px;
-}
 
-//Calculator decor when max width is 350px
-@mixin calcDecorMedia{
-	//Пусто
-}
 
-//Output structure
-@mixin conclusionStructure{
+.calc__conclusion input {
 	height: 100px;
 	width: 97%;
-	text-align:right;
-}
-
-//Output Decor
-@mixin conclusionDecor{
+	text-align: right;
 	color: $conclusion_color;
 	background-color: $conclusion_bg-color;
 	border: none;
@@ -82,117 +26,65 @@ $btn-bgcolor-hover: #a0a0a0;
 	font-size: 40px;
 }
 
-//Button structure
-@mixin btnStructure{
+
+
+.calc__btn input {
 	width: 60px;
 	height: 60px;
 	margin: 5px;
-}
-
-//Button Decor
-@mixin btnDecor{
 	font-size: 20px;
 	font-weight: bold;
 	border: none;
 	border-radius: 50%;
 }
 
-//Hover button structure
-@mixin btnStructureHover{
-	//Пусто
-}
 
-//Decor buttons on hover
-@mixin btnDecorHover{
+
+.calc__btn input:hover {
 	color: $btn-color-hover;
 	background-color: $btn-bgcolor-hover;
+	-webkit-transition: background-color 1s;
+	-o-transition: background-color 1s;
 	transition: background-color 1s;
 }
 
-//Zero button structure
-@mixin btnZeroStructure{
+
+
+.btn0 {
 	padding-left: 20px;
 	text-align: left;
 	width: 130px !important;
 	border-radius: 50px !important;
 }
 
-//Zero button decor
-@mixin btnZeroDecor{
-	//Пусто
-}
-
-//-----------------/Mixin---------------|
 
 
-
-//-----------------Main-----------------|
-
-//Our calculator
-.calc{
-	@include calcStructure;
-	@include calcDecor;
-}
-
-//Calculator output
-.calc__conclusion input{
-	@include conclusionStructure;
-	@include conclusionDecor;
-}
-
-//Calculator buttons
-.calc__btn input{
-	@include btnStructure;
-	@include btnDecor;
-}
-
-//Calculator hover buttons
-.calc__btn input:hover{
-	@include btnStructureHover;
-	@include btnDecorHover;
-}
-
-//Zero button
-.btn0{
-	@include btnZeroStructure;
-	@include btnZeroDecor;
-}
-
-//Yellow buttons
-.btn-yellow{
+.btn-yellow {
 	background-color: #f59906;
 	color: #f3f6f7;
 }
 
-//Black buttons
-.btn-black{
+.btn-black {
 	background-color: #313131;
 	color: #f3f6f7;
 }
 
-//Gray buttons
-.btn-gray{
+.btn-gray {
 	background-color: #a0a0a0;
 }
 
-//Gray buttons on hover
-.calc__btn .btn-gray:hover{
+
+
+.calc__btn .btn-gray:hover {
 	color: white;
 	background-color: #313131;
 }
 
-//------------------/Main--------------|
 
-
-
-//------------------RWD----------------|
-
-//This css code is applied when max width is 350px
-@media (max-width: 350px){
-	.calc{
-		@include calcStructureMedia;
-		@include calcDecorMedia;
+@media (max-width: 350px) {
+	.calc {
+		width: 100%;
+		padding: 0px;
+		padding-bottom: 0px;
 	}
 }
-
-//-------------------/RWD-----------------|
