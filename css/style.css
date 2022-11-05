@@ -72,10 +72,23 @@
   background-color: #313131;
 }
 
-@media (max-width: 350px) {
+@media (max-width: 500px) {
   .calc {
-    width: 100%;
+    width: 100vw;
+    height: 100vh;
     padding: 0px;
     padding-bottom: 0px;
+  }
+
+  .calc__btn {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(auto-fit, 1fr);
+    height: 100%;
+    align-items: center;
+  }
+
+  .calc__btn input  {
+    margin: 0;
   }
 }

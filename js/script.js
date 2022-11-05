@@ -1,0 +1,1 @@
+document.querySelector('.calc__btn').addEventListener('click', e => console.log(e.target))
