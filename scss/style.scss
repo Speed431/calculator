@@ -2,6 +2,9 @@
 @import "_variables";
 
 .calc {
+	display: flex;
+	justify-content: space-between;
+	flex-direction: column;
 	margin: 0 auto;
 	padding: 10px;
 	padding-bottom: 20px;
@@ -26,7 +29,13 @@
 	font-size: 40px;
 }
 
-
+.calc__btn {
+	text-align: center;
+	grid-template-columns: repeat(4, 1fr);
+	display: grid;
+	align-items: center;
+	align-self: center;
+}
 
 .calc__btn input {
 	width: 60px;
@@ -38,6 +47,10 @@
 	border-radius: 50%;
 }
 
+.btn0 {
+	grid-column-start: span 2;
+}
+
 
 
 .calc__btn input:hover {
@@ -45,7 +58,7 @@
 	background-color: $btn-bgcolor-hover;
 	-webkit-transition: background-color 1s;
 	-o-transition: background-color 1s;
-	transition: background-color 1s;
+	transition: all 0.5s;
 }
 
 
@@ -81,9 +94,10 @@
 }
 
 
-@media (max-width: 350px) {
+@media (max-width: 500px) {
 	.calc {
 		width: 100%;
+		height: 100vh;
 		padding: 0px;
 		padding-bottom: 0px;
 	}
