@@ -13,9 +13,7 @@ document.querySelector('.calc__btn').addEventListener('click', (e) => {
 
 
 function changeValue() {
-    if (thisVal) {
-        val1 = input.value;
-    }
+    val1 = input.value;
 }
 
 function plus() {
@@ -42,6 +40,12 @@ function divide() {
     type = 'divide';
 }
 
+function percent() {
+    val2 = val1;
+    val1 = '';
+    type = 'percent';
+}
+
 function equal() {
     if (val1 != "") {
         if (type == 'plus') {
@@ -52,6 +56,8 @@ function equal() {
             val1 = +val2 * +val1;
         } else if (type == 'divide') {
             val1 = +val2 / +val1;
+        } else if (type == 'percent') {
+            val1 = +val2 % +val1;
         }
         input.value = val1;
         val2 = '';
