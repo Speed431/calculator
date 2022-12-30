@@ -1,3 +1,4 @@
-# calculator
-defoult apple calc
-License copiriting c 2077 Shodon Asrorov
+# Calculator
+this is simle calculator.
+
+visit [web-site](https://calculator.shodon.ru)
