@@ -47,21 +47,27 @@ function percent() {
 }
 
 function equal() {
-    if (val1 != "") {
-        if (type == 'plus') {
-            val1 = +val2 + +val1;
-        } else if (type == 'minus') {
-            val1 = +val2 - +val1;
-        } else if (type == 'multiply') {
-            val1 = +val2 * +val1;
-        } else if (type == 'divide') {
-            val1 = +val2 / +val1;
-        } else if (type == 'percent') {
-            val1 = +val2 % +val1;
+    if (val1) {
+        switch (type) {
+            case 'plus':
+                val1 = +val2 + +val1;
+                break;
+            case 'minus':
+                val1 = +val2 - +val1;
+                break;
+            case 'multiply':
+                val1 = +val2 * +val1;
+                break;
+            case 'divide':
+                val1 = +val2 / +val1;
+                break;
+            case 'percent':
+                val1 = +val2 % +val1;
+                break;
         }
-        input.value = val1;
+
         val2 = '';
-    } else {
+        input.value = val1;
     }
 }
 
