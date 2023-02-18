@@ -9,41 +9,16 @@ document.querySelector('.calc__btn').addEventListener('click', (e) => {
         input.value = val1;
     }
 
-})
-
+});
 
 function changeValue() {
     val1 = input.value;
 }
 
-function plus() {
+function operation(action) {
     val2 = val1;
     val1 = '';
-    type = "plus"
-}
-
-function minus() {
-    val2 = val1;
-    val1 = '';
-    type = 'minus';
-}
-
-function multiply() {
-    val2 = val1;
-    val1 = '';
-    type = 'multiply';
-}
-
-function divide() {
-    val2 = val1;
-    val1 = '';
-    type = 'divide';
-}
-
-function percent() {
-    val2 = val1;
-    val1 = '';
-    type = 'percent';
+    type = action;
 }
 
 function equal() {
